@@ -65,6 +65,8 @@ This is the basic structure of the Node-Koa app. Logic is separated out between 
 
 This tells git which files to ignore. For node apps, the most common are `node_modules` (the app's dependencies), `.DS_Store` (tells the computer how to format the directory's icons—completely useless in coding), and `logs` (error or debug logs). Other people working on the repo derive no value in seeing these settings, which is why it is best that git ignores them.
 
+[More about .gitignore](http://git-scm.com/docs/gitignore).
+
 #### LICENSE
 
 A software license that describes how your code can be used by others.
@@ -100,6 +102,10 @@ This arguably the most important file, as it is the first piece of information a
 - [How to write a Readme worth reading](https://orchestrate.io/blog/2014/07/16/how-to-write-a-readme-worth-reading/)
 
 #### bin/server
+
+The `make run`, `make server`, and `make debug` commands all call `--harmony bin/server`. The first line of `bin/server` has `#!/usr/bin/env node`, which tells the computer how to execute the rest of the file.
+
+The `[server]`(https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server) file is for setting up the server. 
 
 #### lib
 

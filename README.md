@@ -101,13 +101,15 @@ This arguably the most important file, as it is the first piece of information a
 - [How to write a great README](http://robots.thoughtbot.com/how-to-write-a-great-readme)
 - [How to write a Readme worth reading](https://orchestrate.io/blog/2014/07/16/how-to-write-a-readme-worth-reading/)
 
-#### bin/server
+#### [bin/server](https://github.com/lambtron/node-koa-mongo-swig-seed/tree/master/bin)
 
 The `make run`, `make server`, and `make debug` commands all call `--harmony bin/server`. The first line of `bin/server` has `#!/usr/bin/env node`, which tells the computer how to execute the rest of the file.
 
-The [`server`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server) file is for setting up the server. 
+The [`server`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server) file is for setting up the server. Here you'll see the `PORT` being defined, the various [middleware](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server#L19-L24) that the server will use, [configuring the routes](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server#L26-L32), and finally [initializing the server](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server#L38).
 
 #### lib
+
+
 
 #### server
 

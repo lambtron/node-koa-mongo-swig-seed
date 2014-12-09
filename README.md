@@ -1,4 +1,5 @@
-node-koa-seed
+Node Koa Seed
 =============
 
-Node-Koajs boilerplate app.
+> Node-Koajs boilerplate app.
+

@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var bodyParser = require('koa-bodyparser');
+var PORT = process.env.PORT || 3000;
+var logger = require('koa-logger');
+var route = require('koa-route');
+var koa = require('koa');
+
+/**
+ * Expose `app`.
+ */
+
+module.exports = app = koa();
+
+/**
+ * Middleware.
+ */
+
+app.use(logger());
+app.use(bodyParser());
+
+/**
+ * Configure routes.
+ */
+
+var routes = require('../server/routes.js');
+app.use(route.get('/', routes.index));
+app.use(route.get('/api/:fooId', routes.doFoo));
+
+/**
+ * Listen on PORT.
+ */
+
+app.listen(PORT);
+console.log('listening on port ' + PORT);

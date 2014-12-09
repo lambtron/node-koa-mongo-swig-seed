@@ -105,7 +105,7 @@ This arguably the most important file, as it is the first piece of information a
 
 The `make run`, `make server`, and `make debug` commands all call `--harmony bin/server`. The first line of `bin/server` has `#!/usr/bin/env node`, which tells the computer how to execute the rest of the file.
 
-The `[server]`(https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server) file is for setting up the server. 
+The [`server`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server) file is for setting up the server. 
 
 #### lib
 

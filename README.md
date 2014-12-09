@@ -13,7 +13,7 @@ $ cd node-koa-mongo-swig-seed
 $ make
 ```
 
-You should see
+You should see:
 
 ```
 listening on port 3000
@@ -71,7 +71,13 @@ A software license that describes how your code can be used by others.
 
 #### Makefile
 
-This file 
+Once upon a time, software was tedious to compile and run, especially when you had to include several source files and execute a series of commands each time. The emergence of `Makefile`s simplifies this process dramatically.
+
+The `Makefile` defines a series of instructions that will build and derive the target program, which can be executed within a set of defined commands.
+
+In our `Makefile`, we define `make clean` (remove non-checked-in depedencies), `make debug` (run in debug mode), `make run` (run the server), and `make server` (run the server with nodemon for development purposes). The default setting, which is called when you just call `make`, will call `make run`.
+
+[More about Makefiles](http://en.wikipedia.org/wiki/Make_(software)).
 
 #### package.json
 

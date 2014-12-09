@@ -37,6 +37,7 @@ Then, point your browser to `https://polar-escarpment-5726.herokuapp.com/`.
 
 ### App structure
 
+```
 .
 +-- bin
 |   +-- server
@@ -56,6 +57,7 @@ Then, point your browser to `https://polar-escarpment-5726.herokuapp.com/`.
 +-- package.json
 +-- Procfile
 +-- README.md
+```
 
 This is the basic structure of the Node-Koa app. Logic is separated out between `bin` (configuration of the server), `lib` (setting up libraries for any area of the app to use), `server` (server-side logic), `views` (front-end templating), and the `Makefile`. We will dive deeper into the aforementioend directories, but first a high level overview of the top-level files.
 

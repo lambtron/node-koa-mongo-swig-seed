@@ -107,6 +107,8 @@ The `make run`, `make server`, and `make debug` commands all call `--harmony bin
 
 The [`server`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server) file is for setting up the server. Here you'll see the `PORT` being defined, the various [middleware](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server#L19-L24) that the server will use, [configuring the routes](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server#L26-L32), and finally [initializing the server](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server#L38).
 
+The configuration of the routes is just mapping paths to functions; i.e. `'/'` to `routes.index`, which is defined in the [`server/routes.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/server/routes.js#L20-L22) file.
+
 #### [lib](https://github.com/lambtron/node-koa-mongo-swig-seed/tree/master/lib)
 
 This folder contains all files that have "helper" code that any other area of the code base can use, which normally is:
@@ -118,7 +120,7 @@ In [`models.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/maste
 
 Also, the [`YOUR_MODEL`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/models.js#L10) name should be the object that you are saving in the database, while the file name should be plural of said object. For example, if you are saving users in your database, the model name should be `user` and the filename be `users.js`.
 
-In [`render.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/render.js), ...
+In [`render.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/render.js), we are telling [`swig`](http://paularmstrong.github.io/swig/), a node.js templating engine, [where](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/render.js#L7) to find the HTML files that will be used as templates, and then exposing `swig`.
 
 In [`twitter.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/twitter.js), we are initializing the library, setting the credentials, and then exposing a 'thunkified' instance. Note that twitter.js is just an example; any wrapper library can be added here, but the main intent is just to initialize (with credentials) and expose it so that any other file that `requires` the file can use it immediately.
 
@@ -126,9 +128,11 @@ In [`twitter.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/mast
 
 This folder contains all files that uphold the back end logic. Whereas the `bin` folder focused on configuring the server and the `lib` folder just made available libraries for other files to use, the `server` folder has the main business logic.
 
-In [`routes.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/server/routes.js), 
+In [`routes.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/server/routes.js), we are setting the routes in each function (i.e. `index()` will render `index.html`). Remember, these functions are exposed via the `Routes` object in the [`bin/server`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/bin/server#L30-L32) file, which maps each `Routes` function to a path.
 
-In [`tweet.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/server/tweet.js),
+We also `require` some of the files in the `./lib` folder. Now these objects and its functions can be used right here, such as the [`render()`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/server/routes.js#L21) function.
+
+In [`tweet.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/server/tweet.js), we are simply adding another level of abstraction between the `routes.js` file and the various functions associated with the `twitter.js` library.
 
 #### [views](https://github.com/lambtron/node-koa-mongo-swig-seed/tree/master/views)
 

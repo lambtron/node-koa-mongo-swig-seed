@@ -114,13 +114,13 @@ This folder contains all files that have "helper" code that any other area of th
 - [to connect to templating engine](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/render.js)
 - [to connect to any wrapper libraries](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/twitter.js)
 
-In `models.js`, it is important to replace the address to the mongo database, as well as recognize that `process.env.MONGOHQ_URL` is the environmental variable that Heroku sets when you use [mongoHQ](https://addons.heroku.com/mongohq) as an add on.
+In [`models.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/models.js), it is important to replace the address to the mongo database, as well as recognize that `process.env.MONGOHQ_URL` is the environmental variable that Heroku sets when you use [mongoHQ](https://addons.heroku.com/mongohq) as an add on.
 
-Also, the `YOUR_MODEL` name should be the object that you are saving in the database, while the file name should be plural of said object. For example, if you are saving users in your database, the model name should be `user` and the filename be `users.js`.
+Also, the [`YOUR_MODEL`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/models.js#L10) name should be the object that you are saving in the database, while the file name should be plural of said object. For example, if you are saving users in your database, the model name should be `user` and the filename be `users.js`.
 
-In `render.js`, ...
+In [`render.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/render.js), ...
 
-In `twitter.js`, we are initializing the library, setting the credentials, and then exposing a 'thunkified' instance. Note that twitter.js is just an example; any wrapper library can be added here, but the main intent is just to initialize (with credentials) and expose it so that any other file that `requires` the file can use it immediately.
+In [`twitter.js`](https://github.com/lambtron/node-koa-mongo-swig-seed/blob/master/lib/twitter.js), we are initializing the library, setting the credentials, and then exposing a 'thunkified' instance. Note that twitter.js is just an example; any wrapper library can be added here, but the main intent is just to initialize (with credentials) and expose it so that any other file that `requires` the file can use it immediately.
 
 #### [server](https://github.com/lambtron/node-koa-mongo-swig-seed/tree/master/server)
 

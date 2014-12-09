@@ -1,15 +1,15 @@
-Node Koa Seed
+Node Koa Mongo Swig Seed
 =============
 
-> Node-Koajs boilerplate app; readily deployable to Heroku for instant lulz.
+> Node-Koa-Mongo-Swig boilerplate app; readily deployable to Heroku for instant lulz.
 
 ### Running Locally
 
 Make sure you have `node 0.11.x` installed, as [Koa](http://koajs.com/) requires generators. Also, make sure you have [mongoDB](http://docs.mongodb.org/manual/installation/) installed. Afterwards, run the following commands:
 
 ```
-$ git clone git@github.com:lambtron/node-koa-seed.git
-$ cd node-koa-seed
+$ git clone git@github.com:lambtron/node-koa-mongo-swig-seed.git
+$ cd node-koa-mongo-swig-seed
 $ make
 ```
 
@@ -36,6 +36,69 @@ $ git push heroku master
 Then, point your browser to `https://polar-escarpment-5726.herokuapp.com/`.
 
 ### App structure
+
+.
++-- bin
+|   +-- server
++-- lib
+|   +-- models.js
+|   +-- render.js
+|   +-- twitter.js
++-- server
+|   +-- routes.js
+|   +-- tweet.js
++-- views
+|   +-- index.html
+|   +-- layout.html
++-- .gitignore
++-- LICENSE
++-- Makefile
++-- package.json
++-- Procfile
++-- README.md
+
+This is the basic structure of the Node-Koa app. Logic is separated out between `bin` (configuration of the server), `lib` (setting up libraries for any area of the app to use), `server` (server-side logic), `views` (front-end templating), and the `Makefile`. We will dive deeper into the aforementioend directories, but first a high level overview of the top-level files.
+
+#### .gitignore
+
+This tells git which files to ignore. For node apps, the most common are `node_modules` (the app's dependencies), `.DS_Store` (tells the computer how to format the directory's icons—completely useless in coding), and `logs` (error or debug logs). Other people working on the repo derive no value in seeing these settings, which is why it is best that git ignores them.
+
+#### LICENSE
+
+A software license that describes how your code can be used by others.
+
+#### Makefile
+
+This file 
+
+#### package.json
+
+This file holds all the metadata related to your app or project. This file is used to give information to [`npm`](http://www.npmjs.org) that allows it to identify the project and its dependencies. This also contains other metadata around the app's description, version, license, and configuration data.
+
+All of the dependencies are located in the `dependencies` property. When you call `npm install`, those are the dependencies and their versions that are installed locally under `node_modules`.
+
+[More information about package.json](https://docs.nodejitsu.com/articles/getting-started/npm/what-is-the-file-package-json).
+
+#### Procfile
+
+This is a Heroku specific file that tells Heroku how to run the app. Heroku has various workers, one of them being `web`, which we have to provide the command to initiate the server. In our case, the server can be started with the `make` command, which is why our Procfile is just `web: make`. In other cases, it can be `web: node server.js` or `web: rails s`, etc.
+
+[More information about Procfiles](https://devcenter.heroku.com/articles/procfile).
+
+#### README.md
+
+This arguably the most important file, as it is the first piece of information a new programmer interacts with to understand your software. For guides to write great readmes, check out the below:
+- [How to write a great README](http://robots.thoughtbot.com/how-to-write-a-great-readme)
+- [How to write a Readme worth reading](https://orchestrate.io/blog/2014/07/16/how-to-write-a-readme-worth-reading/)
+
+#### bin/server
+
+#### lib
+
+#### server
+
+#### views
+
 
 
 ## License (MIT)

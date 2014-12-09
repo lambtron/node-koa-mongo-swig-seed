@@ -5,11 +5,23 @@ Node Koa Mongo Swig Seed
 
 ### Running Locally
 
-Make sure you have `node 0.11.x` installed, as [Koa](http://koajs.com/) requires generators. Also, make sure you have [mongoDB](http://docs.mongodb.org/manual/installation/) installed. Afterwards, run the following commands:
+Make sure you have `node 0.11.x` installed, as [Koa](http://koajs.com/) requires generators.
+
+#### Getting `node 0.11.x` and `mongoDB`
+
+- You can install `node 0.10.33` (or the latest stable version of `node`) [here](http://nodejs.org/download/)
+- Then install [`n`](https://www.npmjs.org/package/n), a nifty node management tool, with `npm install -g n` in your terminal
+- Once `n` is installed, then run `n 0.11.14`
+- Install `mongoDB` [here](http://docs.mongodb.org/manual/installation/)
+
+#### Running the server
+
+Afterwards, run the following commands:
 
 ```
 $ git clone git@github.com:lambtron/node-koa-mongo-swig-seed.git
 $ cd node-koa-mongo-swig-seed
+$ mongod
 $ make
 ```
 
